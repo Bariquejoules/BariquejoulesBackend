@@ -788,6 +788,46 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiCouponCoupon extends Schema.CollectionType {
+  collectionName: 'coupons';
+  info: {
+    singularName: 'coupon';
+    pluralName: 'coupons';
+    displayName: 'Coupon';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    couponName: Attribute.String & Attribute.Required;
+    discountPercentage: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          max: 100;
+        },
+        number
+      >;
+    couponInfo: Attribute.JSON & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::coupon.coupon',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::coupon.coupon',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHeroSectionImgHeroSectionImg extends Schema.CollectionType {
   collectionName: 'hero_section_imgs';
   info: {
@@ -874,6 +914,41 @@ export interface ApiNavLinkNavLink extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::nav-link.nav-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOrderDetailOrderDetail extends Schema.CollectionType {
+  collectionName: 'order_details';
+  info: {
+    singularName: 'order-detail';
+    pluralName: 'order-details';
+    displayName: 'Order_Detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    paymentid: Attribute.String;
+    orderamount: Attribute.Integer;
+    orderitems: Attribute.JSON;
+    name: Attribute.String;
+    address: Attribute.Text;
+    mobile: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::order-detail.order-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::order-detail.order-detail',
       'oneToOne',
       'admin::user'
     > &
@@ -981,9 +1056,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::coupon.coupon': ApiCouponCoupon;
       'api::hero-section-img.hero-section-img': ApiHeroSectionImgHeroSectionImg;
       'api::insta-page.insta-page': ApiInstaPageInstaPage;
       'api::nav-link.nav-link': ApiNavLinkNavLink;
+      'api::order-detail.order-detail': ApiOrderDetailOrderDetail;
       'api::product.product': ApiProductProduct;
       'api::sort-by-jewellery.sort-by-jewellery': ApiSortByJewellerySortByJewellery;
     }

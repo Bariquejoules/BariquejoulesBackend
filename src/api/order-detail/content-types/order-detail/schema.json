@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_details",
+  "info": {
+    "singularName": "order-detail",
+    "pluralName": "order-details",
+    "displayName": "Order_Detail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "paymentid": {
+      "type": "string"
+    },
+    "orderamount": {
+      "type": "integer"
+    },
+    "orderitems": {
+      "type": "json"
+    },
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "mobile": {
+      "type": "string"
+    }
+  }
+}
