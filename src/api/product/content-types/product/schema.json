@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "colors": {
+      "type": "json",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "category": {
+      "type": "json",
+      "required": true
+    },
+    "stock": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "new": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "rings": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "earring": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "necklaces": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "cuffs": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "belts": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "groomset": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "stockNumber": {
+      "type": "integer",
+      "default": 1
+    }
+  }
+}
