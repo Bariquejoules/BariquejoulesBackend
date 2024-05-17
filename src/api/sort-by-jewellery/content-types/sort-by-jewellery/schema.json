@@ -4,7 +4,8 @@
   "info": {
     "singularName": "sort-by-jewellery",
     "pluralName": "sort-by-jewelleries",
-    "displayName": "sortByJewellery"
+    "displayName": "sortByJewellery",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,12 @@
   "attributes": {
     "categorys": {
       "type": "json"
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "maxLength": 21,
+      "minLength": 3
     }
   }
 }

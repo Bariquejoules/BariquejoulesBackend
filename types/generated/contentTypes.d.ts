@@ -788,6 +788,79 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiCollectionCollection extends Schema.CollectionType {
+  collectionName: 'collections';
+  info: {
+    singularName: 'collection';
+    pluralName: 'collections';
+    displayName: 'collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    type: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+        maxLength: 21;
+      }>;
+    typeWise: Attribute.JSON & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::collection.collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::collection.collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCollectionNavbarCollectionNavbar
+  extends Schema.CollectionType {
+  collectionName: 'collection_navbars';
+  info: {
+    singularName: 'collection-navbar';
+    pluralName: 'collection-navbars';
+    displayName: 'Collection_Navbar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Type: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+        maxLength: 21;
+      }>;
+    Links: Attribute.JSON & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::collection-navbar.collection-navbar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::collection-navbar.collection-navbar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCouponCoupon extends Schema.CollectionType {
   collectionName: 'coupons';
   info: {
@@ -921,6 +994,79 @@ export interface ApiNavLinkNavLink extends Schema.CollectionType {
   };
 }
 
+export interface ApiOccassionOccassion extends Schema.CollectionType {
+  collectionName: 'occassions';
+  info: {
+    singularName: 'occassion';
+    pluralName: 'occassions';
+    displayName: 'occassion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    type: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+        maxLength: 21;
+      }>;
+    typeWise: Attribute.JSON & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::occassion.occassion',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::occassion.occassion',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOccassionNavbarOccassionNavbar
+  extends Schema.CollectionType {
+  collectionName: 'occassion_navbars';
+  info: {
+    singularName: 'occassion-navbar';
+    pluralName: 'occassion-navbars';
+    displayName: 'Occassion_Navbar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+        maxLength: 20;
+      }>;
+    Links: Attribute.JSON & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::occassion-navbar.occassion-navbar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::occassion-navbar.occassion-navbar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOrderDetailOrderDetail extends Schema.CollectionType {
   collectionName: 'order_details';
   info: {
@@ -989,6 +1135,24 @@ export interface ApiProductProduct extends Schema.CollectionType {
       Attribute.DefaultTo<false>;
     image: Attribute.Media & Attribute.Required;
     stockNumber: Attribute.Integer & Attribute.DefaultTo<1>;
+    Festive_Occassion: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Fusion_Occassion: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    BQJ_Occassion: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Dahr_Collection: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Zariya_Collection: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Inara_Collection: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1007,6 +1171,43 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiShopJewelleryShopJewellery extends Schema.CollectionType {
+  collectionName: 'shop_jewelleries';
+  info: {
+    singularName: 'shop-jewellery';
+    pluralName: 'shop-jewelleries';
+    displayName: 'shopJewellery';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    type: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+        maxLength: 21;
+      }>;
+    Links: Attribute.JSON & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::shop-jewellery.shop-jewellery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::shop-jewellery.shop-jewellery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSortByJewellerySortByJewellery
   extends Schema.CollectionType {
   collectionName: 'sort_by_jewelleries';
@@ -1014,12 +1215,19 @@ export interface ApiSortByJewellerySortByJewellery
     singularName: 'sort-by-jewellery';
     pluralName: 'sort-by-jewelleries';
     displayName: 'sortByJewellery';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     categorys: Attribute.JSON;
+    type: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+        maxLength: 21;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1056,12 +1264,17 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::collection.collection': ApiCollectionCollection;
+      'api::collection-navbar.collection-navbar': ApiCollectionNavbarCollectionNavbar;
       'api::coupon.coupon': ApiCouponCoupon;
       'api::hero-section-img.hero-section-img': ApiHeroSectionImgHeroSectionImg;
       'api::insta-page.insta-page': ApiInstaPageInstaPage;
       'api::nav-link.nav-link': ApiNavLinkNavLink;
+      'api::occassion.occassion': ApiOccassionOccassion;
+      'api::occassion-navbar.occassion-navbar': ApiOccassionNavbarOccassionNavbar;
       'api::order-detail.order-detail': ApiOrderDetailOrderDetail;
       'api::product.product': ApiProductProduct;
+      'api::shop-jewellery.shop-jewellery': ApiShopJewelleryShopJewellery;
       'api::sort-by-jewellery.sort-by-jewellery': ApiSortByJewellerySortByJewellery;
     }
   }
