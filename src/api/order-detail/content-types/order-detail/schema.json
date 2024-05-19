@@ -4,7 +4,8 @@
   "info": {
     "singularName": "order-detail",
     "pluralName": "order-details",
-    "displayName": "Order_Detail"
+    "displayName": "Order_Detail",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -28,6 +29,20 @@
     },
     "mobile": {
       "type": "string"
+    },
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "orderStatus": {
+      "type": "integer",
+      "required": true,
+      "max": 5,
+      "min": 0
+    },
+    "Notes": {
+      "type": "text",
+      "required": false
     }
   }
 }

@@ -1073,6 +1073,7 @@ export interface ApiOrderDetailOrderDetail extends Schema.CollectionType {
     singularName: 'order-detail';
     pluralName: 'order-details';
     displayName: 'Order_Detail';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1084,6 +1085,17 @@ export interface ApiOrderDetailOrderDetail extends Schema.CollectionType {
     name: Attribute.String;
     address: Attribute.Text;
     mobile: Attribute.String;
+    userId: Attribute.String & Attribute.Required;
+    orderStatus: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+          max: 5;
+        },
+        number
+      >;
+    Notes: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
